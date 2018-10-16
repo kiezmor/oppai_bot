@@ -1,0 +1,21 @@
+{
+  "name": "oppai",
+  "version": "0.0.1",
+  "description": "discord bot",
+  "main": "bot.js",
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "enmap": "^4.3.2",
+    "ffmpeg-binaries": "^3.2.2",
+    "node-opus": "^0.2.7",
+    "request": "^2.88.0",
+    "ytdl-core": "^0.26.1",
+    "ytdl-getinfo": "^1.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "kiezmor",
+  "license": "ISC"
+}
