@@ -2,7 +2,7 @@
   "name": "oppai",
   "version": "0.1.0",
   "description": "discord bot",
-  "main": "bot.js",
+  "main": "oppai.js",
   "dependencies": {
     "discord.js": "^11.4.2",
     "ffmpeg-binaries": "^3.2.2",
@@ -10,6 +10,10 @@
     "request": "^2.88.0",
     "ytdl-core": "^0.26.1",
     "ytdl-getinfo": "^1.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kiezmor/oppai_bot.git"
   },
   "devDependencies": {},
   "scripts": {
