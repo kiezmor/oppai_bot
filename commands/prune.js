@@ -8,5 +8,6 @@ exports.run = async (bot, message, args) => {
     message.channel.bulkDelete(fetched).catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
 }  
 exports.help = {
-    name: 'prune'
+    name: 'prune',
+    usage: "Use prune <nbr> to delete <nbr> of message(s)"
 }

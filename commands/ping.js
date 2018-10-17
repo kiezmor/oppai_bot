@@ -3,5 +3,6 @@ exports.run = async (bot, message, args) => {
     m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(bot.ping)}ms`);
 }  
 exports.help = {
-    name: 'ping'
+    name: 'ping',
+    usage: "Use ping to see bot and api ms"
 }

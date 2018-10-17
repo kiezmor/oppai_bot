@@ -4,5 +4,6 @@ exports.run = async (bot, message, args) => {
     message.channel.send(sayMessage);
 }  
 exports.help = {
-    name: 'say'
+    name: 'say',
+    usage: "Use say <msg> to make bot say the <msg>"
 }

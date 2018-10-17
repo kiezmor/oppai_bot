@@ -20,5 +20,6 @@ exports.run = async (bot, message, args) => {
         });
 }  
 exports.help = {
-    name: 'boobs'
+    name: 'boobs',
+    usage: "Use boobs to get a random image of boobs"
 }
