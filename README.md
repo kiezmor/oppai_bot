@@ -1,1 +1,2 @@
-# oppai_bot
+# Oppai Bot
+A custom bot using Discord.js
