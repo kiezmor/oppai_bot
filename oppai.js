@@ -1,6 +1,5 @@
 const fs = require('fs');
 const util = require('util');
-const request = require('request');
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 const config = require("./config.json");
@@ -47,7 +46,7 @@ bot.on("message", async message => {
     let cmd = bot.commands.get(command.slice(prefix.length));
   
     if(command.startsWith(prefix)){
-        if(cmd) cmd.run(bot, message, args, request);
+        if(cmd) cmd.run(bot, message, args);
             console.log(`[Oppai BOT]: ${message.author.username}#${message.author.discriminator} used command ${command} on ${message.guild.name}:${message.guild.id} in ${message.channel.name}:${message.channel.id}`);
     }
 });

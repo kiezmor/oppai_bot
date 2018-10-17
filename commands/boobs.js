@@ -1,4 +1,5 @@
-exports.run = async (bot, message, args, request) => {
+exports.run = async (bot, message, args) => {
+    const request = require('request');
     rng = Math.floor((Math.random() * 13199) + 1);
         var url = ('http://api.oboobs.ru/boobs/' + rng);
         request.get({

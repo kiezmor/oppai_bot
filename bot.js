@@ -52,7 +52,7 @@ client.on("message", async message => {
 
     if (command === "join") {
 		if (!voiceChannel || voiceChannel.type !== 'voice') return message.reply('I couldn\'t connect to your voice channel...');
-		    voiceChannel.join().then(connection => {message.reply('I have successfully connected to the channel!');}).catch(console.log);
+            voiceChannel.join().then(connection => {message.reply('I have successfully connected to the channel!');}).catch(console.log);
     }
     if (command === "leave") {
         if (voiceChannel)
