@@ -50,9 +50,7 @@ fs.readdir('./commands/', (err, files) => {
 
 bot.on("message", async message => {
     const prefix = config.prefix;
-    // console.log(message.content);
     const messageArray = message.content.split(/\s+/g);
-    // console.log(messageArray);
     const command = messageArray[0];
     const args = messageArray.slice(1);
     let cmd = bot.commands.get(command.slice(prefix.length));
