@@ -1,0 +1,9 @@
+# Folder #
+#========#
+node_modules/
+log/
+old/
+
+# Config #
+#========#
+config.json
