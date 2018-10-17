@@ -20,6 +20,16 @@ bot.on("ready", () => {
     bot.user.setActivity(`4 Reich inc.`);
 });
 
+bot.on("guildCreate", guild => {
+    console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
+    bot.user.setActivity(`Serving ${bot.guilds.size} servers`);
+});
+
+bot.on("guildDelete", guild => {
+    console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
+    bot.user.setActivity(`Serving ${bot.guilds.size} servers`);
+});
+
 fs.readdir('./commands/', (err, files) => {
     if(err) console.error(err);
 
