@@ -34,31 +34,26 @@ exports.run = async (bot, message, args) => {
         j = 0;
         bot.commands.forEach(function(name) {
             if (j == (i - 1))
-                tmp += name.help.name;
+                tmp += '`' + name.help.name + '`';
             else
-                tmp += name.help.name + ', ';
+                tmp += '`' + name.help.name + '`, ';
             j++;
         });
         message.channel.send({embed: {
-            color: 3447003,
+            color: 65280,
             fields: [{
-                name: "Bot prefix",
-                value: config.prefix
+                name: "❯Bot prefix",
+                value: '`'+config.prefix+'`'
             },
             {
-                name: "List of commands",
+                name: "❯List of commands",
                 value: tmp
             },
             {
-                name: "Usage",
-                value: "Use help <cmd> to see the usage of command"
+                name: "❯Usage",
+                value: "Use help `<cmd>` to see the usage of command"
             }
             ],
-            timestamp: new Date(),
-            footer: {
-            icon_url: bot.user.avatarURL,
-            text: "Oppai BOT"
-            }
         }
         });
     }
