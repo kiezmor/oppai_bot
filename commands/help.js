@@ -61,5 +61,6 @@ exports.run = async (bot, message, args) => {
 }  
 exports.help = {
     name: 'help',
-    usage: "Use 'help <cmd> to see the usage of cmd or juste 'help to see list of cmd"
+    usage: "Use 'help <cmd> to see the usage of cmd or juste 'help to see list of cmd",
+    require: "There's no permission require"
 }
