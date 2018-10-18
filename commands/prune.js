@@ -1,5 +1,4 @@
 exports.run = async (bot, message, args) => {
-    console.log(message.member);
     if (message.member.hasPermission('MANAGE_MESSAGES')) {
         const deleteCount = parseInt(args[0], 10);
     if (!deleteCount || deleteCount < 2 || deleteCount > 100) 

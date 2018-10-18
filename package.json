@@ -1,6 +1,6 @@
 {
   "name": "oppai",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "discord bot",
   "main": "oppai.js",
   "dependencies": {
