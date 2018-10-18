@@ -57,7 +57,7 @@ bot.on("message", async message => {
   
     if(command.startsWith(prefix)){
         if(cmd) cmd.run(bot, message, args);
-            console.log(`[Oppai BOT]: ${message.author.username}#${message.author.discriminator} used command ${command} ${args} on ${message.guild.name}:${message.guild.id} in ${message.channel.name}:${message.channel.id}`);
+            console.log(`[Oppai BOT]: ${message.author.username}#${message.author.discriminator}:${message.author.id} used command ${command} ${args} on ${message.guild.name}:${message.guild.id} in ${message.channel.name}:${message.channel.id}`);
     }
 });
 bot.login(config.token);
