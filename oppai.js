@@ -17,7 +17,7 @@ console.log = function(d) {
 
 bot.on("ready", () => {
     console.log(`Bot has started, with ${bot.users.size} users, in ${bot.channels.size} channels of ${bot.guilds.size} guilds.`);
-    bot.user.setActivity(`4 Reich inc.`);
+    bot.user.setActivity(config.activity);
 });
 
 bot.on("guildCreate", guild => {
