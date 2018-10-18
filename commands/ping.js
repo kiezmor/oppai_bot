@@ -4,5 +4,6 @@ exports.run = async (bot, message, args) => {
 }  
 exports.help = {
     name: 'ping',
-    usage: "Use ping to see bot and api ms"
+    usage: "Use ping to see bot and api ms",
+    require: "There's no permission require"
 }

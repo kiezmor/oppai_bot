@@ -9,6 +9,10 @@ exports.run = async (bot, message, args) => {
                     fields: [{
                         name: "Usage",
                         value: name.help.usage
+                    },
+                    {
+                        name: "Require",
+                        value: name.help.require
                     }
                     ],
                     timestamp: new Date(),

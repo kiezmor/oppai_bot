@@ -1,6 +1,7 @@
 exports.run = async (bot, message, args) => {
-    const request = require('request');
-    rng = Math.floor((Math.random() * 6012) + 1);
+    if (message.channel.nsfw) {
+        const request = require('request');
+        rng = Math.floor((Math.random() * 6012) + 1);
         var url = ('http://api.obutts.ru/butts/' + rng);
         request.get({
             url: url,
@@ -18,8 +19,12 @@ exports.run = async (bot, message, args) => {
                 else message.channel.send("💢 Error, Please try again!");
             }
         });
+    }
+    else
+        message.channel.send("This channel is not NSFW!");
 }  
 exports.help = {
     name: 'butts',
-    usage: "Use butts to get a random image of butt"
+    usage: "Use butts to get a random image of butt",
+    require: "Your channel need to be NSFW"
 }
