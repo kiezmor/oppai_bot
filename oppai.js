@@ -17,6 +17,7 @@ console.log = function(d) {
 
 fs.readdir("./events/", (err, files) => {
     if (err) return console.error(err);
+    console.log(`Loading a total of ${files.length} events.`);
     files.forEach(file => {
         const event = require(`./events/${file}`);
         let eventName = file.split(".")[0];
@@ -30,7 +31,7 @@ fs.readdir('./commands/', (err, files) => {
     if(cmds.lenght <= 0) {
         return console.log('No command files found...');
     }
-    console.log(`Loading ${files.lenght} commands...`);
+    console.log(`Loading ${files.length} commands...`);
     cmds.forEach((f, i) => {
         const command = require(`./commands/${f}`);
         console.log(`${i + 1}: ${f} loaded!`);
