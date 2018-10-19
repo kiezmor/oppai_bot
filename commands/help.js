@@ -5,7 +5,7 @@ exports.run = async (bot, message, args) => {
         bot.commands.forEach(function(name) {
             if (args == name.help.name){
                 message.channel.send({embed: {
-                    color: 3447003,
+                    color: 65280,
                     fields: [{
                         name: "Usage",
                         value: name.help.usage
@@ -15,11 +15,6 @@ exports.run = async (bot, message, args) => {
                         value: name.help.require
                     }
                     ],
-                    timestamp: new Date(),
-                    footer: {
-                    icon_url: bot.user.avatarURL,
-                    text: "Oppai BOT"
-                    }
                 }
                 });
             }
