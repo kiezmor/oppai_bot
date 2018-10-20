@@ -26,5 +26,6 @@ exports.run = async (bot, message, args) => {
 exports.help = {
     name: 'gif',
     usage: "Use gif <tag or no> to get a random gif from selected tag",
-    require: "There's no permission require"
+    require: "There's no permission require",
+    img: "https://github.com/kiezmor/oppai_bot/tree/master/assets/image/gif.png"
 }

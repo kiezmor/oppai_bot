@@ -4,19 +4,40 @@ exports.run = async (bot, message, args) => {
     {
         bot.commands.forEach(function(name) {
             if (args == name.help.name){
-                message.channel.send({embed: {
-                    color: 65280,
-                    fields: [{
-                        name: "Usage",
-                        value: name.help.usage
-                    },
-                    {
-                        name: "Require",
-                        value: name.help.require
+                if (!(name.help.img)) {
+                    message.channel.send({embed: {
+                        color: 65280,
+                        fields: [{
+                            name: "Usage",
+                            value: name.help.usage
+                        },
+                        {
+                            name: "Require",
+                            value: name.help.require
+                        }
+                        ],
                     }
-                    ],
+                    });
                 }
-                });
+                else {
+                    console.log("../assets/images/"+ name.help.name +".png");
+                    message.channel.send({embed: {
+                        color: 65280,
+                        fields: [{
+                            name: "Usage",
+                            value: name.help.usage
+                        },
+                        {
+                            name: "Require",
+                            value: name.help.require
+                        }
+                        ],
+                        image: {
+                            url: name.help.img
+                        }
+                    }
+                    });
+                }
             }
         });
     }
