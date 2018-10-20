@@ -20,7 +20,6 @@ exports.run = async (bot, message, args) => {
                     });
                 }
                 else {
-                    console.log(name.help.img);
                     message.channel.send({embed: {
                         color: 65280,
                         fields: [{
