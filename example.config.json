@@ -1,5 +1,6 @@
 { 
     "token": "TOKEN HERE",
     "prefix": "!",
+    "giphy_key": "GIPHY API KEY",
     "activity": "Bot activity"
   }
