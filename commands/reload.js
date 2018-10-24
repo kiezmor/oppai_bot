@@ -1,15 +1,15 @@
-exports.run = (client, message, args) => {
+exports.run = (bot, message, args) => {
     const config = require("../config.json");
     if (message.author.id === config.owner) {
         if(!args || args.size < 1) return message.reply("Must provide a command name to reload.");
         const commandName = args[0];
-        if(!client.commands.has(commandName)) {
+        if(!bot.commands.has(commandName)) {
             return message.reply("That command does not exist");
         }
         delete require.cache[require.resolve(`./${commandName}.js`)];
-        client.commands.delete(commandName);
+        bot.commands.delete(commandName);
         const props = require(`./${commandName}.js`);
-        client.commands.set(commandName, props);
+        bot.commands.set(commandName, props);
         message.reply(`The command ${commandName} has been reloaded`);
     }
     else
