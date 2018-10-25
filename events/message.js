@@ -11,6 +11,6 @@ module.exports = (bot, message) => {
         cmd = bot.commands.get(bot.aliases.get(command));
     if(cmd) {
         cmd.run(bot, message, args);
-        console.log(`[Oppai BOT]: ${message.author.username}#${message.author.discriminator}:${message.author.id} used command ${command} ${args} on ${message.guild.name}:${message.guild.id} in ${message.channel.name}:${message.channel.id}`);
+        console.log(`[Oppai BOT]: ${message.author.username}#${message.author.discriminator}:${message.author.id} used command ${message.content} on ${message.guild.name}:${message.guild.id} in ${message.channel.name}:${message.channel.id}`);
     }
 };

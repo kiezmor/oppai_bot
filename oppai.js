@@ -22,6 +22,7 @@ fs.readdir("./events/", (err, files) => {
     files.forEach(file => {
         const event = require(`./events/${file}`);
         let eventName = file.split(".")[0];
+        console.log(eventName)
         bot.on(eventName, event.bind(null, bot));
     });
 });
@@ -39,7 +40,7 @@ fs.readdir('./commands/', (err, files) => {
         bot.commands.set(command.help.name, command);
         command.help.aliases.forEach(alias =>{
             bot.aliases.set(alias, command.help.name)
-        })
+        });
     }); 
 });
 bot.login(config.token);

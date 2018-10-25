@@ -1,2 +1,120 @@
 # Oppai Bot
 A custom bot using [Discord.js](https://discord.js.org/)
+
+## Event Handler Explainer
+
+Each event will need to have a file in that folder, named exactly like the event itself. So for `message` we want `./events/message.js`
+
+### 1: Making an Event
+The very basic code for making a event is this:
+
+```js
+module.exports = (bot, message) => {
+    // do stuff
+};
+```
+
+### 2: How events are load
+
+This loop reads the `/events/` folder and attaches each event file to the appropriate `event`.
+
+```js
+// Load the contents of the `/events/` folder and each file in it.
+fs.readdir("./events/", (err, files) => {
+    if (err) return console.error(err);
+    console.log(`Loading a total of ${files.length} events.`);
+    // Loops through each file in that folder
+    files.forEach(file => {
+        // Require the file itself in memory
+        const event = require(`./events/${file}`);
+        // Remove `.js`
+        let eventName = file.split(".")[0];
+        // Bind event to bot event
+        bot.on(eventName, event.bind(null, bot));
+    });
+});
+```
+
+## Command Handler Explainer
+
+It's also used as one of the most basic examples of a "proper" command handler where each command is in a separate file.
+There are 3 parts to the command handler.
+
+### 1: Making a Command:
+The very basic code for making a command is this:
+
+```js
+exports.run = (bot, message, args) =>  {
+    // do stuff
+};
+
+exports.help = {
+    name: 'help',
+    aliases: ['h'],
+    usage: "Command Description",
+    require: "Command Description Require"
+}
+```
+
+### 2: How the code loads the commands
+
+This is the part that actually loads the commands in memory:
+
+```js
+// Uses Discord.Collection() mostly for the helpers like `map()`, to be honest.
+bot.commands = new Discord.Collection();
+bot.aliases = new Discord.Collection();
+// Load the contents of the `/commands/` folder and each file in it.
+fs.readdir('./commands/', (err, files) => {
+    (err) console.error(err);
+    // Put all js file in cmds without `.js`
+    let cmds = files.filter(f => f.split('.').pop() === 'js');
+    console.log(`Loading ${files.length} commands...`);
+    // Loops through each file
+    cmds.forEach((f, i) => {
+        // require the file itself in memory
+        const command = require(`./commands/${f}`);
+        console.log(`${i + 1}: ${f} loaded!`);
+        // add the command to the Commands Collection
+        bot.commands.set(command.help.name, command);
+        // Loops through each Alias in that command
+        command.help.aliases.forEach(alias =>{
+            // add the alias to the Aliases Collection
+            bot.aliases.set(alias, command.help.name)
+        });
+    });
+});
+```
+
+### 3: How the bot runs the commands
+
+The `message` handler is often the biggest part of a discord.js bot file... but here it's small and load from the event handler:
+
+```js
+// This is my event message
+module.exports = (bot, message) => {
+    // Require config for prefix
+    const config = require("../config.json");
+    //Check prefix and if the sender is a bot
+    if (message.author.bot) return;
+    if (message.content.indexOf(config.prefix) !== 0) return;
+    // Slice to get args
+    const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+    // Shift first word and put it to lowercase in command
+    const command = args.shift().toLowerCase();
+    let cmd;
+    //Check if command or aliases to get command
+    if (bot.commands.has(command))
+        cmd = bot.commands.get(command);
+    else if (bot.aliases.has(command))
+        cmd = bot.commands.get(bot.aliases.get(command));
+    // Security
+    if(cmd) {
+        // Execute the command
+        cmd.run(bot, message, args);
+        console.log(`[BOT]: ${message.author.username} used command ${message.content}`);
+    }
+};
+```
+
+The rest of the bot file is pretty much your standard stuff. Require some files, log some events, login with the token and stuff.
