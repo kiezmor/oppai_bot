@@ -1,43 +1,30 @@
 exports.run = async (bot, message, args) => {
     const config = require("../config.json");
-    if (args != 0)
-    {
-        bot.commands.forEach(function(name) {
-            if (args == name.help.name){
-                if (!(name.help.img)) {
-                    message.channel.send({embed: {
-                        color: 65280,
-                        fields: [{
-                            name: "Usage",
-                            value: name.help.usage
-                        },
-                        {
-                            name: "Require",
-                            value: name.help.require
-                        }
-                        ],
-                    }
-                    });
-                }
-                else {
-                    message.channel.send({embed: {
-                        color: 65280,
-                        fields: [{
-                            name: "Usage",
-                            value: name.help.usage
-                        },
-                        {
-                            name: "Require",
-                            value: name.help.require
-                        }
-                        ],
-                        image: {
-                            url: name.help.img
-                        }
-                    }
-                    });
-                }
+    if (args != 0) {
+        const command = args.shift().toLowerCase();
+        if (bot.commands.has(command)) {
+            cmd = bot.commands.get(command);
+        }
+        else if (bot.aliases.has(command)) {
+            cmd = bot.commands.get(bot.aliases.get(command));
+        }
+        let ali = cmd.help.aliases.toString();
+        message.channel.send({embed: {
+            color: 65280,
+            fields: [{
+                name: "Usage",
+                value: cmd.help.usage
+            },
+            {
+                name: "Aliases",
+                value: ali
+            },
+            {
+                name: "Require",
+                value: cmd.help.require
             }
+            ],
+        }
         });
     }
     else {
@@ -75,6 +62,7 @@ exports.run = async (bot, message, args) => {
 }  
 exports.help = {
     name: 'help',
+    aliases: ['h', '?'],
     usage: "Use help <cmd> to see the usage of command or juste help to see list of command",
     require: "There's no permission require"
 }

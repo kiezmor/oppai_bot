@@ -25,6 +25,7 @@ exports.run = async (bot, message, args) => {
 }  
 exports.help = {
     name: 'boobs',
+    aliases: [],
     usage: "Use boobs to get a random image of boobs",
     require: "Your channel need to be NSFW"
 }

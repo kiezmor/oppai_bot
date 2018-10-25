@@ -5,6 +5,7 @@ const bot = new Discord.Client();
 const config = require("./config.json");
 
 bot.commands = new Discord.Collection();
+bot.aliases = new Discord.Collection();
 
 var log_file = fs.createWriteStream(__dirname + '/log/debug.log', {flags : 'a'});
 var log_stdout = process.stdout;
@@ -36,6 +37,9 @@ fs.readdir('./commands/', (err, files) => {
         const command = require(`./commands/${f}`);
         console.log(`${i + 1}: ${f} loaded!`);
         bot.commands.set(command.help.name, command);
+        command.help.aliases.forEach(alias =>{
+            bot.aliases.set(alias, command.help.name)
+        })
     }); 
 });
 bot.login(config.token);
