@@ -50,7 +50,7 @@ exports.run = (bot, message, args) =>  {
 
 exports.help = {
     name: 'help',
-    aliases: ['h'],
+    aliases: ['h', '?'],
     usage: "Command Description",
     require: "Command Description Require"
 }
