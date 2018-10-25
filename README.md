@@ -117,4 +117,41 @@ module.exports = (bot, message) => {
 };
 ```
 
+## Reload command
+
+This is pretty usefull, you can reload if you've modified your command without restart the bot
+
+```js
+exports.run = (bot, message, args) => {
+    // Check if there's an args
+    if(!args || args.size < 1) return message.reply("Must provide a command name to reload.");
+    // Convert args to lowercase
+    let cmd = args.shift().toLowerCase();
+    // Check if command or aliases exist
+    if(!bot.commands.has(cmd) && !bot.aliases.has(cmd)) {
+        return message.reply("That command does not exist");
+    }
+    // If alliases, get the command
+    if (bot.aliases.has(cmd))
+        cmd = bot.aliases.get(cmd);
+    // Delete the cache
+    delete require.cache[require.resolve(`./${cmd}.js`)];
+    // Require the command file
+    const props = require(`./${cmd}.js`);
+    // Delete command from `commands` Discord.Collection
+    bot.commands.delete(cmd);
+    // Removed each aliases from command
+    bot.aliases.forEach((props, alias) => {
+        if (props === cmd) bot.aliases.delete(alias);
+    });
+    // Set the command to `commands` Discord.Collection
+    bot.commands.set(cmd, props);
+    // Set each aliases to the command
+    props.help.aliases.forEach(alias =>{
+        bot.aliases.set(alias, props.help.name);
+    })
+    message.reply(`The command ${cmd} has been reloaded`);
+};
+```
+
 The rest of the bot file is pretty much your standard stuff. Require some files, log some events, login with the token and stuff.
