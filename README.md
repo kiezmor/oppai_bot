@@ -119,7 +119,7 @@ module.exports = (bot, message) => {
 
 ## Reload command
 
-This is pretty usefull, you can reload if you've modified your command without restart the bot
+This is pretty useful, you can reload if you've modified your command without restart the bot
 
 ```js
 exports.run = (bot, message, args) => {
