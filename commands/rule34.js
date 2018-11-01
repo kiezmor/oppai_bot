@@ -37,6 +37,6 @@ exports.run = async (bot, message, args) => {
 exports.help = {
     name: 'rule34',
     aliases: ['r34'],
-    usage: "Use r32 <tag or no> to see get a random image from selected tag(s)",
+    usage: "Use r34 <tag or no> to see get a random image from selected tag(s)",
     require: "Your channel need to be NSFW"
 }

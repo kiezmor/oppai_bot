@@ -2,6 +2,9 @@ exports.run = async (bot, message, args) => {
     const config = require("../config.json");
     if (args != 0) {
         const command = args.shift().toLowerCase();
+        if (!bot.commands.has(command) && !bot.aliases.has(command)) {
+            return message.channel.send("Wrong command!");
+        }
         if (bot.commands.has(command)) {
             cmd = bot.commands.get(command);
         }
