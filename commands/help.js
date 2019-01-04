@@ -1,5 +1,6 @@
 exports.run = async (bot, message, args) => {
-    const config = require("../config.json");
+    const conf = require("../json/config.json");
+    const config = conf.config;
     if (args != 0) {
         const command = args.shift().toLowerCase();
         if (!bot.commands.has(command) && !bot.aliases.has(command)) {

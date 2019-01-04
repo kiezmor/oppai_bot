@@ -1,5 +1,6 @@
 module.exports = (bot, message) => {
-    const config = require("../config.json");
+    const conf = require("../json/config.json");
+    const config = conf.config;
     if (message.author.bot) return;
     if (message.content.indexOf(config.prefix) !== 0) return;
     const args = message.content.slice(config.prefix.length).trim().split(/ +/g);

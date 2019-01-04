@@ -1,5 +1,6 @@
 exports.run = (bot, message, args) => {
-    const config = require("../config.json");
+    const conf = require("../json/config.json");
+    const config = conf.config;
     if (message.author.id === config.owner) {
         if(!args || args.size < 1) return message.reply("Must provide a command name to reload.");
         let cmd = args.shift().toLowerCase();

@@ -13,7 +13,7 @@ exports.run = async (bot, message, args) => {
 }  
 exports.help = {
     name: 'prune',
-    aliases: ['p'],
+    aliases: ['pr'],
     usage: "Use prune <nbr> to delete <nbr> of message(s)",
     require: "Require the permission: MANAGE_MESSAGES"
 }

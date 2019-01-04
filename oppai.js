@@ -2,10 +2,13 @@ const fs = require('fs');
 const util = require('util');
 const Discord = require('discord.js');
 const bot = new Discord.Client();
-const config = require("./config.json");
+const conf = require("./json/config.json");
+const config = conf.config;
 
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
+bot.playing = new Discord.Collection();
+bot.queu = new Discord.Collection();
 
 var log_file = fs.createWriteStream(__dirname + '/log/debug.log', {flags : 'a'});
 var log_stdout = process.stdout;
@@ -22,7 +25,7 @@ fs.readdir("./events/", (err, files) => {
     files.forEach(file => {
         const event = require(`./events/${file}`);
         let eventName = file.split(".")[0];
-        console.log(eventName)
+        // console.log(eventName);
         bot.on(eventName, event.bind(null, bot));
     });
 });
@@ -34,13 +37,14 @@ fs.readdir('./commands/', (err, files) => {
         return console.log('No command files found...');
     }
     console.log(`Loading ${files.length} commands...`);
-    cmds.forEach((f, i) => {
+    cmds.forEach(f => {
         const command = require(`./commands/${f}`);
-        console.log(`${i + 1}: ${f} loaded!`);
+        // console.log(`${f} loaded!`);
         bot.commands.set(command.help.name, command);
         command.help.aliases.forEach(alias =>{
             bot.aliases.set(alias, command.help.name)
         });
     }); 
 });
+
 bot.login(config.token);
