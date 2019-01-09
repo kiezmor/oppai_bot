@@ -1,6 +1,30 @@
 # Oppai Bot
 A custom bot using [Discord.js](https://discord.js.org/)
 
+## Commands
+
+* NSFW: boobs, butts, danbooru, gelbooru, konachan, rule34, safebooru, yandere
+
+* Admin/mod: prune
+
+* Other: gif, ping, say, help
+
+* Owner: reload
+
+## TO-DO List
+
+- [ ] Music **(WIP)**
+    - [x] play
+    - [ ] queue **(WIP)**
+    - [x] youtube
+    - [ ] soundcloud
+- [ ] 4chan
+- [ ] Ecchi hub posting
+- [ ] **AI???!!!!**
+- [ ] User profil, rank & other
+- [ ] random meme
+- [ ] ban/kick
+
 ## Event Handler Explainer
 
 Each event will need to have a file in that folder, named exactly like the event itself. So for `message` we want `./events/message.js`
