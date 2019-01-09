@@ -3,6 +3,8 @@ A custom bot using [Discord.js](https://discord.js.org/)
 
 ## Commands
 
+* Music: play
+
 * NSFW: boobs, butts, danbooru, gelbooru, konachan, rule34, safebooru, yandere
 
 * Admin/mod: prune
