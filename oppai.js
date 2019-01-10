@@ -7,13 +7,14 @@ const config = conf.config;
 
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
+bot.mods = new Discord.Collection();
 bot.playing = new Discord.Collection();
 bot.queu = new Discord.Collection();
 
-var log_file = fs.createWriteStream(__dirname + '/log/debug.log', {flags : 'a'});
+var log_file = fs.createWriteStream(__dirname + '/log/debug.log', { flags: 'a' });
 var log_stdout = process.stdout;
 
-console.log = function(d) {
+console.log = function (d) {
     var currentDate = '[' + new Date().toUTCString() + '] ';
     log_file.write(currentDate + util.format(d) + '\n');
     log_stdout.write(currentDate + util.format(d) + '\n');
@@ -25,26 +26,26 @@ fs.readdir("./events/", (err, files) => {
     files.forEach(file => {
         const event = require(`./events/${file}`);
         let eventName = file.split(".")[0];
-        // console.log(eventName);
         bot.on(eventName, event.bind(null, bot));
     });
 });
 
-fs.readdir('./commands/', (err, files) => {
-    if(err) console.error(err);
-    let cmds = files.filter(f => f.split('.').pop() === 'js');
-    if(cmds.lenght <= 0) {
-        return console.log('No command files found...');
-    }
-    console.log(`Loading ${files.length} commands...`);
-    cmds.forEach(f => {
-        const command = require(`./commands/${f}`);
-        // console.log(`${f} loaded!`);
-        bot.commands.set(command.help.name, command);
-        command.help.aliases.forEach(alias =>{
-            bot.aliases.set(alias, command.help.name)
+fs.readdir('./commands/', (err, dir) => {
+    if (err) console.error(err);
+    dir.forEach(f => {
+        bot.commands[f] = new Discord.Collection();
+        fs.readdir('./commands/' + f, (err, file) => {
+            file.forEach(fs => {
+                const cmd = require('./commands/' + f + '/' + fs);
+                bot.commands[f].set(cmd.help.name, cmd);
+                bot.mods.set(cmd.help.name, f);
+                cmd.help.aliases.forEach(alias => {
+                    bot.aliases.set(alias, cmd.help.name)
+                });
+            });
+            console.log(`Loading ${file.length} commands on module ${f}`);
         });
-    }); 
+    });
 });
 
 bot.login(config.token);

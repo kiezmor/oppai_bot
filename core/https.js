@@ -39,10 +39,10 @@ https.get(urlt, function(res){
                 content = JSON.parse(body);
                 if (content.data)
                     message.channel.send(content.data.image_original_url);
-                else if (content[0].file_url)
+                else if (content[0])
                     message.channel.send(content[0].file_url);
                 else
-                    message.channel.send("Nothing found!");
+                    message.channel.send("Nobody here but us chickens!");
             });
     }
 });

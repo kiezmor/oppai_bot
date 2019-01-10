@@ -1,6 +1,6 @@
 exports.run = async (bot, message, args) => {
-    const req = require('../core/https.js');
-    const conf = require("../json/config.json");
+    const req = require('../../core/https.js');
+    const conf = require("../../json/config.json");
     const config = conf.config;
     var url = ('https://api.giphy.com/v1/gifs/random?api_key=' + config.giphy_key + '&tag=');
     req(bot, message, args, url);

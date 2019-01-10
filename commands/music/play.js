@@ -1,7 +1,7 @@
 exports.run = async (bot, message, args) => {
     const ytdl = require('ytdl-core');
     const sm = args.join(" ");
-    const queu = require('../core/queu.js');
+    const queu = require('../../core/queu.js');
     let validate = await ytdl.validateURL(sm);
     if (!validate) 
         return message.channel.send("💢 Whoops, re-check the URL you gave me, I am getting an error while trying to play the song. ");

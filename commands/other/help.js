@@ -1,17 +1,10 @@
-exports.run = async (bot, message, args) => {
-    const conf = require("../json/config.json");
+exports.run = (bot, message, args) => {
+    const conf = require("../../json/config.json");
     const config = conf.config;
+    const get = require("../../core/utils.js");
     if (args != 0) {
         const command = args.shift().toLowerCase();
-        if (!bot.commands.has(command) && !bot.aliases.has(command)) {
-            return message.channel.send("Wrong command!");
-        }
-        if (bot.commands.has(command)) {
-            cmd = bot.commands.get(command);
-        }
-        else if (bot.aliases.has(command)) {
-            cmd = bot.commands.get(bot.aliases.get(command));
-        }
+        cmd = get.Getcmd(bot, message, command);
         let ali = cmd.help.aliases.toString();
         message.channel.send({embed: {
             color: 65280,
@@ -32,19 +25,6 @@ exports.run = async (bot, message, args) => {
         });
     }
     else {
-        var tmp = "";
-        i = 0;
-        bot.commands.forEach(function() {
-            i++;   
-        });
-        j = 0;
-        bot.commands.forEach(function(name) {
-            if (j == (i - 1))
-                tmp += '`' + name.help.name + '`';
-            else
-                tmp += '`' + name.help.name + '`, ';
-            j++;
-        });
         message.channel.send({embed: {
             color: 65280,
             fields: [{
@@ -53,11 +33,11 @@ exports.run = async (bot, message, args) => {
             },
             {
                 name: "❯List of commands",
-                value: tmp
+                value: "**Music:** `play` ***(WIP)***\n**NSFW:** `boobs, butts, danbooru, gelbooru, konachan, rule34, safebooru, yandere`\n**Other:** `gif, help, ping, say`\n**Mod:** `prune`"
             },
             {
                 name: "❯Usage",
-                value: "Use help `<cmd>` to see the usage of command"
+                value: "Use help `<command>` to see the usage"
             }
             ],
         }
