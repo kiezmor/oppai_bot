@@ -17,33 +17,3 @@ module.exports.Getmod = (bot, command) => {
         c = command;
     return (bot.mods.get(c));
 };
-
-module.exports.GetEachM = (bot) => {
-    // const fs = require('fs');
-    // i = 0;
-    // fs.readdirSync('./commands/').forEach(file => {
-    //     var mods = [];
-    //     mods = Array.from(file);
-    //     // i++;
-    //     console.log(file)
-    // })
-    // console.log(mods[0])
-    // return mods
-
-    // fs.readdir('./commands/', (err, files) => {
-    //     files.forEach(file => {
-    //     //   console.log(file);
-    //     var mods = [];
-    //     mods = file;
-    //     });
-    //     // console.log(files)
-    //     return mods;
-    // });
-    bot.mods.forEach((cmds, mods) => {
-        console.log(`cmd ${cmds} & ${mods}`)
-    });
-};
-
-module.exports.GetEachC = (bot, command) => {
-
-};
