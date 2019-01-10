@@ -7,11 +7,11 @@ A custom bot using [Discord.js](https://discord.js.org/)
 
 * NSFW: boobs, butts, danbooru, gelbooru, konachan, rule34, safebooru, yandere
 
-* Admin/mod: prune
+* Mod: prune
 
 * Other: gif, ping, say, help
 
-* Owner: reload
+* Owner/Admin: reload
 
 ## TO-DO List
 
