@@ -1,7 +1,7 @@
 exports.run = async (bot, message, args) => {
     if (message.channel.nsfw) {
         const request = require('request');
-        rng = Math.floor((Math.random() * 6012) + 1);
+        rng = Math.floor((Math.random() * 6199) + 1);
         var url = ('http://api.obutts.ru/butts/' + rng);
         request.get({
             url: url,

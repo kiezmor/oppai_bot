@@ -1,5 +1,5 @@
 # Oppai Bot
-A custom bot using [Discord.js](https://discord.js.org/)
+A discord bot made by [kiezmor](https://github.com/kiezmor) in Node.JS using the API [Discord.js](https://discord.js.org/)
 
 ## Commands
 
@@ -26,6 +26,7 @@ A custom bot using [Discord.js](https://discord.js.org/)
 - [ ] User profil, rank & other
 - [ ] random meme
 - [ ] ban/kick
+- [ ] cleverbot
 
 ## Event Handler Explainer
 

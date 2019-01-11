@@ -3,7 +3,7 @@ module.exports.Getcmd = (bot, message, command) => {
         c = bot.aliases.get(command);
     else
         c = command;
-    if (mods = bot.mods.get(c))
+    if (mods = bot.mods.get(bot.binds.get(c)))
         return (bot.commands[mods].get(c));
     else
         message.channel.send('Unknow command!');
@@ -15,5 +15,5 @@ module.exports.Getmod = (bot, command) => {
         c = bot.aliases.get(command);
     else
         c = command;
-    return (bot.mods.get(c));
+    return (bot.mods.get(bot.binds.get(c)));
 };
