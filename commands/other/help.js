@@ -28,7 +28,8 @@ exports.run = (bot, message, args) => {
     else {
         var tmp = "";
         bot.mods.forEach((mods, key) => {
-            tmp += `${mods.charAt(0).toUpperCase() + mods.substr(1)}: `;
+            if (mods == "owner") return;
+            tmp += `**${mods.charAt(0).toUpperCase() + mods.substr(1)}:** `;
             let i = 1;
             bot.commands[mods].forEach(cmd => {
                 if ((bot.commands[mods].size) == i)
