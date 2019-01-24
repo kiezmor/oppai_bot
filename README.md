@@ -7,7 +7,7 @@ A discord bot made by [kiezmor](https://github.com/kiezmor) in Node.JS using the
 
 * NSFW: boobs, butts, danbooru, gelbooru, konachan, rule34, safebooru, yandere
 
-* Mod: prune
+* Mod: prune, kick, ban
 
 * Other: gif, ping, say, help
 
@@ -25,7 +25,7 @@ A discord bot made by [kiezmor](https://github.com/kiezmor) in Node.JS using the
 - [ ] **AI???!!!!**
 - [ ] User profil, rank & other
 - [ ] random meme
-- [ ] ban/kick
+- [x] ban/kick
 - [ ] cleverbot
 
 ## Event Handler Explainer

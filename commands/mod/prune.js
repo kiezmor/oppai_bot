@@ -9,7 +9,7 @@ exports.run = async (bot, message, args) => {
     message.channel.bulkDelete(fetched).catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
     }
     else
-        message.channel.send("You don't have permission to manage messages");
+        message.channel.send("You don't have the permission");
 }  
 exports.help = {
     name: 'prune',

@@ -45,7 +45,6 @@ fs.readdir('./commands/', (err, dir) => {
             file.forEach(fs => {
                 const cmd = require('./commands/' + f + '/' + fs);
                 bot.commands[f].set(cmd.help.name, cmd);
-                // bot.mods.set(cmd.help.name, f);
                 bot.binds.set(cmd.help.name, i);
                 cmd.help.aliases.forEach(alias => {
                     bot.aliases.set(alias, cmd.help.name)

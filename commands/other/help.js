@@ -44,7 +44,7 @@ exports.run = (bot, message, args) => {
                 color: 65280,
                 fields: [{
                     name: "❯Bot prefix",
-                    value: `${config.prefix}`
+                    value: `\`${config.prefix}\``
                 },
                 {
                     name: "❯List of commands",

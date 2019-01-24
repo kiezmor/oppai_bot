@@ -10,6 +10,9 @@ module.exports = (bot, message) => {
     if (!(cmd = getcmd(bot, message, command))) return;
     if (cmd) {
         cmd.run(bot, message, args);
-        console.log(`[Oppai BOT]: ${message.author.username}#${message.author.discriminator}:${message.author.id} used command ${message.content} on ${message.guild.name}:${message.guild.id} in ${message.channel.name}:${message.channel.id}`);
+        if (message.guild)
+            console.log(`[Oppai BOT]: ${message.author.username}#${message.author.discriminator}:${message.author.id} used command ${message.content} on ${message.guild.name}:${message.guild.id} in ${message.channel.name}:${message.channel.id}`);
+        else
+            console.log(`[Oppai BOT]: ${message.author.username}#${message.author.discriminator}:${message.author.id} used command ${message.content} in DM`);
     }
 };
