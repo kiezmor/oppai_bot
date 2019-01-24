@@ -3,13 +3,15 @@ A discord bot made by [kiezmor](https://github.com/kiezmor) in Node.JS using the
 
 ## Commands
 
+* Fun: gif, cat, dog
+
 * Music: play
 
 * NSFW: boobs, butts, danbooru, gelbooru, konachan, rule34, safebooru, yandere
 
 * Mod: prune, kick, ban
 
-* Other: gif, ping, say, help
+* Other: ping, say, help
 
 * Owner/Admin: reload
 
