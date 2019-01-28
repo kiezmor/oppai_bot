@@ -3,7 +3,7 @@ A discord bot made by [kiezmor](https://github.com/kiezmor) in Node.JS using the
 
 ## Commands
 
-* Fun: gif, cat, dog
+* Fun: cat, dog
 
 * Music: play
 
@@ -27,7 +27,8 @@ A discord bot made by [kiezmor](https://github.com/kiezmor) in Node.JS using the
 - [ ] **AI???!!!!**
 - [ ] User profil, rank & other
 - [ ] random meme
-- [x] ban/kick
+- [ ] mute/unmute, voice and text
+- [ ] config by server
 - [ ] cleverbot
 
 ## Event Handler Explainer
