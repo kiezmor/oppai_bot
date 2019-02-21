@@ -20,7 +20,7 @@ exports.run = async (bot, message, args) => {
 
 exports.help = {
     name: 'cat',
-    aliases: [''],
+    aliases: [],
     usage: "Use cat for a random cat",
     require: "There's no permission require"
 }

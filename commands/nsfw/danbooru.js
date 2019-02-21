@@ -1,6 +1,6 @@
 exports.run = async (bot, message, args) => {
     const req = require('../../core/https.js');
-    if (message.channel.nsfw) {
+    if (message.channel.nsfw || !message.guild) {
         var url = 'https://danbooru.donmai.us/posts.json?random=1&limit=1&tags=';
         req(bot, message, args, url);
     }

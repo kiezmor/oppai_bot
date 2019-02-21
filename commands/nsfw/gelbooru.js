@@ -1,6 +1,6 @@
 exports.run = async (bot, message, args) => {
     const req = require('../../core/https.js');
-    if (message.channel.nsfw) {
+    if (message.channel.nsfw || !message.guild) {
         var url = 'https://gelbooru.com/index.php?page=dapi&s=post&limit=100&q=index&tags=';
         req(bot, message, args, url);
     }
