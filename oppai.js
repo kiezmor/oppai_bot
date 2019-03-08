@@ -14,13 +14,14 @@ bot.binds = new Discord.Collection();
 
 bot.playing = new Discord.Collection();
 bot.queu = new Discord.Collection();
+bot.disp = new Discord.Collection();
 
 //Overwrite console.log function to get better log
 var log_file = fs.createWriteStream(__dirname + '/log/debug.log', { flags: 'a' });
 var log_stdout = process.stdout;
 
 console.log = function (d) {
-    var currentDate = '[' + new Date().toUTCString() + '] ';
+    var currentDate = '[' + new Date().toUTCString() + '] [Oppai BOT] ';
     log_file.write(currentDate + util.format(d) + '\n');
     log_stdout.write(currentDate + util.format(d) + '\n');
 };

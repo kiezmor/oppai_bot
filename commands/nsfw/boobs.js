@@ -1,7 +1,7 @@
 exports.run = async (bot, message, args) => {
     if (message.channel.nsfw || !message.guild) {
         const req = require('../../core/http.js');
-        rng = Math.floor((Math.random() * 13460) + 1);
+        rng = Math.floor((Math.random() * 13586) + 1);
         var url = ('http://api.oboobs.ru/boobs/' + rng);
         req(bot, message, args, url);
     }

@@ -17,6 +17,9 @@ exports.run = async (bot, message, args) => {
         .then(connection => {
             message.channel.send('I have successfully connected to the channel!');
             disp = connection.playStream(ytdl(sm, { filter: "audioonly" }));
+            disp.setVolume(0.3);
+            bot.disp.set(message.guild.id, disp);
+            // console.log(bot.disp)
             disp.on('end', () => {
                 queu(bot, message);
             });
