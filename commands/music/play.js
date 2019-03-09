@@ -5,21 +5,25 @@ exports.run = async (bot, message, args) => {
     const sm = args.join(" ");
     const queu = require('../../core/queu.js');
     let validate = await ytdl.validateURL(sm);
-    if (!validate) 
+    if (!validate)
         return message.channel.send("💢 Whoops, re-check the URL you gave me, I am getting an error while trying to play the song. ");
-    if (message.member.voiceChannel) {
-        bot.playing.set(message.guild.id, message.member.voiceChannel);
-        if (!message.guild.voiceConnection)
-            message.member.voiceChannel.join()
-        disp = message.guild.voiceConnection.playStream(ytdl(sm, { filter: "audioonly" }));
-        disp.setVolume(0.3);
-        bot.disp.set(message.guild.id, disp);
-        disp.on('end', () => {
+    if (!message.member.voiceChannel)
+        return message.reply('💢 You need to join a voice channel first!');
+    bot.playing.set(message.guild.id, message.member.voiceChannel);
+    if (!message.guild.voiceConnection)
+        message.member.voiceChannel.join()
+    disp = message.guild.voiceConnection.playStream(ytdl(sm, { filter: "audioonly" }));
+    disp.setVolume(0.3);
+    bot.disp.set(message.guild.id, disp);
+    disp.on('end', () => {
+        queu(bot, message);
+    });
+    disp.on('error', (err) => {
+        return message.channel.send('error: ' + err).then(() => {
+            console.log(err);
             queu(bot, message);
-        });
-    } else {
-        message.reply('💢 You need to join a voice channel first!');
-    }
+        })
+    });
 }
 
 exports.help = {

@@ -5,9 +5,9 @@ A discord bot made by [kiezmor](https://github.com/kiezmor) in Node.JS using the
 
 * Fun: cat, dog
 
-* Music: play
+* Music: play, leave, queu, volume, pause
 
-* NSFW: boobs, butts, danbooru, gelbooru, konachan, rule34, safebooru, yandere
+* NSFW: boobs, butts, danbooru, gelbooru, konachan, rule34, safebooru, yandere, hentaibomb
 
 * Mod: prune, kick, ban
 
@@ -19,7 +19,7 @@ A discord bot made by [kiezmor](https://github.com/kiezmor) in Node.JS using the
 
 - [ ] Music **(WIP)**
     - [x] play
-    - [ ] queue **(WIP)**
+    - [x] queue
     - [x] youtube
     - [ ] soundcloud
 - [ ] 4chan
