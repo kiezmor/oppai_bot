@@ -7,24 +7,16 @@ exports.run = async (bot, message, args) => {
     let validate = await ytdl.validateURL(sm);
     if (!validate) 
         return message.channel.send("💢 Whoops, re-check the URL you gave me, I am getting an error while trying to play the song. ");
-    if (bot.playing.has(message.guild.id))
-        return message.channel.send("I'm already on your server, please add a music with 'queu <URL>")
-    // console.log(bot.playing);
     if (message.member.voiceChannel) {
-        // console.log(message.guild.id);
         bot.playing.set(message.guild.id, message.member.voiceChannel);
-        message.member.voiceChannel.join()
-        .then(connection => {
-            message.channel.send('I have successfully connected to the channel!');
-            disp = connection.playStream(ytdl(sm, { filter: "audioonly" }));
-            disp.setVolume(0.3);
-            bot.disp.set(message.guild.id, disp);
-            // console.log(bot.disp)
-            disp.on('end', () => {
-                queu(bot, message);
-            });
-        })
-        .catch(console.log);
+        if (!message.guild.voiceConnection)
+            message.member.voiceChannel.join()
+        disp = message.guild.voiceConnection.playStream(ytdl(sm, { filter: "audioonly" }));
+        disp.setVolume(0.3);
+        bot.disp.set(message.guild.id, disp);
+        disp.on('end', () => {
+            queu(bot, message);
+        });
     } else {
         message.reply('💢 You need to join a voice channel first!');
     }

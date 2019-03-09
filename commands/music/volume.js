@@ -1,6 +1,10 @@
 exports.run = async (bot, message, args) => {
-    disp = bot.disp.get(message.guild.id);
-    disp.setVolume(args);
+    if (message.member.voiceChannel) {
+        disp = bot.disp.get(message.guild.id);
+        disp.setVolume(args);
+    } else {
+        message.reply('💢 You need to join a voice channel first!');
+    }
 }
 
 exports.help = {
