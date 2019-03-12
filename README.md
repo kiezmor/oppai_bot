@@ -22,6 +22,7 @@ A discord bot made by [kiezmor](https://github.com/kiezmor) in Node.JS using the
     - [x] queue
     - [x] youtube
     - [ ] soundcloud
+    - [ ] dynamic controler
 - [ ] 4chan
 - [ ] Ecchi hub posting
 - [ ] **AI???!!!!**
@@ -30,6 +31,9 @@ A discord bot made by [kiezmor](https://github.com/kiezmor) in Node.JS using the
 - [ ] mute/unmute, voice and text
 - [ ] config by server
 - [ ] cleverbot
+- [ ] overwatch stats
+
+*Need to update some parts of the readme, since i've made so many change on the bot*
 
 ## Event Handler Explainer
 

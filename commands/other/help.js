@@ -1,4 +1,4 @@
-exports.run = (bot, message, args) => {
+exports.run = async (bot, message, args) => {
     const conf = require("../../json/config.json");
     const config = conf.config;
     const get = require("../../core/utils.js");
@@ -59,6 +59,7 @@ exports.run = (bot, message, args) => {
         });
     }
 }
+
 exports.help = {
     name: 'help',
     aliases: ['h', '?'],

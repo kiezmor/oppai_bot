@@ -5,6 +5,8 @@ exports.run = async (bot, message, args) => {
     let validate = await ytdl.validateURL(sm);
     if (!message.member.voiceChannel)
         return message.reply('💢 You need to join a voice channel first!');
+    if (!bot.queu[message.guild.id])
+        bot.queu[message.guild.id] = new Discord.Collection();
     if (args == "") {
         let i = 1;
         var tmp = "";
@@ -18,8 +20,6 @@ exports.run = async (bot, message, args) => {
     } else {
         if (!validate)
             return message.channel.send("💢 Whoops, re-check the URL you gave me, I am getting an error while trying to play the song. ");
-        if (!(bot.queu[message.guild.id]))
-            bot.queu[message.guild.id] = new Discord.Collection();
         queu = bot.queu[message.guild.id];
         queu.set(queu.size, args);
     }

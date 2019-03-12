@@ -6,9 +6,8 @@ module.exports = (bot, message) => {
 
         if (bot.queu[message.guild.id].first()) {
                 play.run(bot, message, bot.queu[message.guild.id].first());
-                bot.queu[message.guild.id].delete(bot.queu[message.guild.id].firstKey())
-        }
-        else {
+                bot.queu[message.guild.id].delete(bot.queu[message.guild.id].firstKey());
+        } else {
                 message.channel.send('Music finished!');
                 console.log('Music finished!');
                 leave.run(bot, message);
