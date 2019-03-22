@@ -5,6 +5,7 @@ exports.run = async (bot, message) => {
     bot.queu[message.guild.id].forEach((val, key) => {
         console.log(bot.queu[message.guild.id].delete(key))
     });
+    bot.disp.delete(message.guild.id);
     vc.leave();
     message.channel.send('I\'ve leaved!');
 }

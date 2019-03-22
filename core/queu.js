@@ -3,10 +3,9 @@ module.exports = (bot, message) => {
         disp = bot.disp.get(message.guild.id);
         const play = require("../commands/music/play.js");
         const leave = require("../commands/music/leave.js");
-
-        if (bot.queu[message.guild.id].first()) {
-                play.run(bot, message, bot.queu[message.guild.id].first());
-                bot.queu[message.guild.id].delete(bot.queu[message.guild.id].firstKey());
+        pi = bot.queu[message.guild.id].first();
+        if (pi) {
+                play.run(bot, message, pi);
         } else {
                 message.channel.send('Music finished!');
                 console.log('Music finished!');

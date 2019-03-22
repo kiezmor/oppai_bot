@@ -3,8 +3,9 @@ exports.run = async (bot, message, args) => {
         return message.channel.send('💢 You need to be on a server!');
     const Discord = require('discord.js');
     const ytdl = require('ytdl-core');
-    const sm = args.join(" ");
-    const queu = require('../../core/queu.js');
+    const sm = args.join("");
+    const play = require('../../core/play.js');
+    const add = require('./queu.js');
     let validate = await ytdl.validateURL(sm);
     if (!validate)
         return message.channel.send("💢 Whoops, re-check the URL you gave me, I am getting an error while trying to play the song. ");
@@ -15,18 +16,14 @@ exports.run = async (bot, message, args) => {
     bot.playing.set(message.guild.id, message.member.voiceChannel);
     if (!message.guild.voiceConnection)
         message.member.voiceChannel.join()
-    disp = message.guild.voiceConnection.playStream(ytdl(sm, { filter: "audioonly" }));
-    disp.setVolume(0.3);
-    bot.disp.set(message.guild.id, disp);
-    disp.on('end', () => {
-        queu(bot, message);
-    });
-    disp.on('error', (err) => {
-        return message.channel.send('error: ' + err).then(() => {
-            console.log(err);
-            queu(bot, message);
-        })
-    });
+    pi = bot.queu[message.guild.id].first();
+    if (bot.disp.has(message.guild.id) && !(pi == sm))
+        add.run(bot, message, args);
+    else {
+        if (pi == sm)
+            bot.queu[message.guild.id].delete(bot.queu[message.guild.id].firstKey());
+        play(bot, message, sm);
+    }
 }
 
 exports.help = {
