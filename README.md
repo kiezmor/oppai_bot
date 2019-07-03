@@ -20,9 +20,9 @@ A discord bot made by [kiezmor](https://github.com/kiezmor) in Node.JS using the
 - [ ] Music **(WIP)**
     - [x] play
     - [x] queue
-    - [ ] youtube
+    - [x] youtube
         - [x] youtube music
-        - [ ] youtube playlist
+        - [x] youtube playlist
     - [ ] soundcloud
     - [ ] spotify??
     - [ ] dynamic controler
