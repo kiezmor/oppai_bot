@@ -12,9 +12,8 @@ bot.aliases = new Discord.Collection();
 bot.mods = new Discord.Collection();
 bot.binds = new Discord.Collection();
 
-bot.playing = new Discord.Collection();
+bot.voicec = new Discord.Collection();
 bot.queu = new Discord.Collection();
-bot.disp = new Discord.Collection();
 
 //Overwrite console.log function to get better log
 var log_file = fs.createWriteStream(__dirname + '/log/debug.log', { flags: 'a' });

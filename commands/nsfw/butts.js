@@ -1,9 +1,13 @@
 exports.run = async (bot, message, args) => {
     if (message.channel.nsfw || !message.guild) {
         const req = require('../../core/http.js');
-        rng = Math.floor((Math.random() * 6325) + 1);
+        rng = Math.floor((Math.random() * 6631) + 1);
         var url = ('http://api.obutts.ru/butts/' + rng);
-        req(bot, message, args, url);
+
+        req(url).then((prom) => {
+            content = JSON.parse(prom);
+            message.channel.send("http://media.obutts.ru/" + content[0].preview);
+        });
     }
     else
         message.channel.send("This channel is not NSFW!");

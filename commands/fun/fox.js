@@ -1,16 +1,16 @@
 exports.run = async (bot, message, args) => {
     const req = require('../../core/https.js');
-    var url = 'https://random.dog/woof.json';
+    var url = "https://some-random-api.ml/img/fox";
 
     req(url).then((prom) => {
         content = JSON.parse(prom);
-        message.channel.send(content.url);
+        message.channel.send(content.link);
     });
 }
 
 exports.help = {
-    name: 'dog',
+    name: 'fox',
     aliases: [],
-    usage: "Use dog for a random dog",
+    usage: "Use fox for a random fox",
     require: "There's no permission require"
 }

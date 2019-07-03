@@ -3,9 +3,9 @@ A discord bot made by [kiezmor](https://github.com/kiezmor) in Node.JS using the
 
 ## Commands
 
-* Fun: cat, dog
+* Fun: cat, dog, fox
 
-* Music: play, leave, queu, volume, pause
+* Music: play, leave, queu, volume, pause, skip, board
 
 * NSFW: boobs, butts, danbooru, gelbooru, konachan, rule34, safebooru, yandere, hentaibomb
 
@@ -20,11 +20,14 @@ A discord bot made by [kiezmor](https://github.com/kiezmor) in Node.JS using the
 - [ ] Music **(WIP)**
     - [x] play
     - [x] queue
-    - [x] youtube
+    - [ ] youtube
+        - [x] youtube music
+        - [ ] youtube playlist
     - [ ] soundcloud
+    - [ ] spotify??
     - [ ] dynamic controler
 - [ ] 4chan
-- [ ] Ecchi hub posting
+- [ ] Facebook posting
 - [ ] **AI???!!!!**
 - [ ] User profil, rank & other
 - [ ] random meme
@@ -32,6 +35,7 @@ A discord bot made by [kiezmor](https://github.com/kiezmor) in Node.JS using the
 - [ ] config by server
 - [ ] cleverbot
 - [ ] overwatch stats
+- [ ] "iam" self assign role
 
 *Need to update some parts of the readme, since i've made so many change on the bot*
 

@@ -1,20 +1,10 @@
 exports.run = async (bot, message, args) => {
-    const https = require("https");
+    const req = require('../../core/https.js');
     var url = 'https://aws.random.cat/meow';
-    https.get(url, function (res) {
-        var body = '';
 
-        res.on('data', function (chunk) {
-            body += chunk;
-        });
-
-        res.on('end', function () {
-            content = JSON.parse(body);
-            if (content.file)
-                message.channel.send(content.file);
-            else
-                message.channel.send("Nobody here but us chickens!");
-        });
+    req(url).then((prom) => {
+        content = JSON.parse(prom);
+        message.channel.send(content.file);
     });
 }
 
