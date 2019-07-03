@@ -16,6 +16,6 @@ module.exports = (bot, message) => {
             console.log(`${message.author.username}#${message.author.discriminator}:${message.author.id} used command ${message.content} in DM`);
     }
     const mod = get.Getmod(bot, command);
-    if (mod == "other")
+    if (mod == "other" || mod == "music")
         message.delete().catch(O_o => { });
 };

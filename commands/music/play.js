@@ -1,17 +1,19 @@
 exports.run = async (bot, message, args) => {
     const ytdl = require('ytdl-core');
-    const sm = args.join("");
+    const sm = args.toString();
     const add = require('./queu.js');
     const queu = require('../../core/queu.js');
 
     if (!message.guild) return message.channel.send('💢 You need to be on a server!');
-
+    if (sm.indexOf('playlist?list=') > -1) {
+        return add.run(bot, message, sm);
+    }
     let validate = await ytdl.validateURL(sm);
     if (!validate)
         return message.channel.send("💢 Whoops, re-check the URL you gave me, I am getting an error while trying to play the song. ");
     var playing = false;
     if (!bot.voicec[message.guild.id])
-        bot.voicec[message.guild.id] = {playing};
+        bot.voicec[message.guild.id] = { playing };
     if (message.member.voiceChannel && bot.voicec[message.guild.id].playing == false) {
         message.member.voiceChannel.join()
             .then(connection => {

@@ -3,7 +3,8 @@ module.exports = (bot, message) => {
         const leave = require("../commands/music/leave.js");
         if (!bot.queu[message.guild.id])
                 leave.run(bot, message);
-        if (pi = bot.queu[message.guild.id].first()) {
+        pi = bot.queu[message.guild.id].first();
+        if (pi) {
                 play.run(bot, message, pi);
                 bot.queu[message.guild.id].delete(bot.queu[message.guild.id].firstKey());
         } else {

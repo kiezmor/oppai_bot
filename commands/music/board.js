@@ -7,10 +7,10 @@ exports.run = async (bot, message, args) => {
     const sm = bot.voicec[message.guild.id].sm;
     // console.log(sm)
     var tmp = "";
-    if (!bot.queu[message.guild.id])
+    if (!bot.queu[message.guild.id]) {
         tmp += "There's no queu!";
-    else {
-        bot.queu[message.guild.id].forEach((links, key) => {
+    } else {
+        var t = bot.queu[message.guild.id].forEach((links, key) => {
             var c = links.toString();
             aytub = yt(c)
             aytub.on('info', (info) => {
@@ -23,8 +23,8 @@ exports.run = async (bot, message, args) => {
                 console.log(err);
             });
         })
+        await t;
     }
-    // console.log(tmp)
     ytub = yt(sm)
     ytub.on('info', (info) => {
         min = Math.floor(info.length_seconds / 60);
@@ -57,6 +57,7 @@ exports.run = async (bot, message, args) => {
         console.log(err);
     });
     delete tmp;
+    delete t;
 }
 
 exports.help = {
