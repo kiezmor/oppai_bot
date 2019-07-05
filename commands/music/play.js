@@ -5,7 +5,7 @@ exports.run = async (bot, message, args) => {
     const queu = require('../../core/queu.js');
 
     if (!message.guild) return message.channel.send('💢 You need to be on a server!');
-    if (sm.indexOf('playlist?list=') > -1) {
+    if (sm.indexOf('list=') > -1) {
         return add.run(bot, message, sm);
     }
     let validate = await ytdl.validateURL(sm);
@@ -18,7 +18,7 @@ exports.run = async (bot, message, args) => {
         message.member.voiceChannel.join()
             .then(connection => {
                 const disp = connection.playStream(ytdl(sm, { filter: "audioonly" }));
-                disp.setVolume(0.5);
+                disp.setVolume(0.2);
                 playing = true;
                 delete bot.voicec[message.guild.id];
                 bot.voicec[message.guild.id] = { disp, connection, playing, sm };

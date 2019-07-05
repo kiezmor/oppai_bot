@@ -1,26 +1,26 @@
 {
-  "name": "oppai",
-  "version": "0.1.13",
-  "description": "discord bot",
-  "main": "oppai.js",
-  "dependencies": {
-    "discord.js": "^11.5.1",
-    "ffmpeg-static": "^2.4.0",
-    "http": "0.0.0",
-    "https": "^1.0.0",
-    "node-opus": "^0.3.2",
-    "xml2js": "^0.4.19",
-    "ytdl-core": "^0.29.2",
-    "ytdl-getinfo": "^1.1.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/kiezmor/oppai_bot.git"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "kiezmor",
-  "license": "MIT"
+    "name": "oppai",
+    "version": "0.2.2",
+    "description": "discord bot",
+    "main": "oppai.js",
+    "dependencies": {
+        "discord.js": "^11.5.1",
+        "ffmpeg-static": "^2.4.0",
+        "http": "0.0.0",
+        "https": "^1.0.0",
+        "node-opus": "^0.3.2",
+        "xml2js": "^0.4.19",
+        "ytdl-core": "^0.29.2",
+        "ytdl-getinfo": "^1.1.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/kiezmor/oppai_bot.git"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "kiezmor",
+    "license": "MIT"
 }

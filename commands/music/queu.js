@@ -20,11 +20,11 @@ exports.run = async (bot, message, args) => {
             tmp += `${key} => ${mod}\n`;
 
         });
-        message.channel.send(tmp);
+        message.channel.send('`'+tmp+'`');
     } else {
-        var id = args.toString().split('=')[1].split('&')[0];
-        var url = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=100&playlistId=" + id + "&key=" + key;
-        if (sm.indexOf('playlist?list=') > -1) {
+        var id = args.toString().split('list=')[1].split('&')[0];
+        var url = "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&maxResults=30&playlistId=" + id + "&key=" + key;
+        if (sm.indexOf('list=') > -1) {
             req(url).then((prom) => {
                 content = JSON.parse(prom);
                 content.items.forEach((vid) => {

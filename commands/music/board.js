@@ -23,8 +23,9 @@ exports.run = async (bot, message, args) => {
                 console.log(err);
             });
         })
-        await t;
+        // await t;
     }
+    // console.log(await tmp.toString().length)
     ytub = yt(sm)
     ytub.on('info', (info) => {
         min = Math.floor(info.length_seconds / 60);
@@ -46,6 +47,7 @@ exports.run = async (bot, message, args) => {
                 await message.react('⏯');
                 await message.react('🔉');
                 await message.react('🔊');
+                await message.react('⏭');
                 await message.react('❌');
             } catch (error) {
                 console.error('One of the emojis failed to react.');
